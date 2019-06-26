@@ -1,0 +1,23 @@
+﻿@model User
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@Html.BeginForm("Create", "Home", FormMethod.Post)
+
+<ul>
+    <li>@Html.TextBoxFor(model => model.FirstName, new { placeholder = "İsim:" } )</li>
+    <li>@Html.TextBoxFor(model => model.LastName, new {placeholder = "Soyisim:"})</li>
+    <li>@Html.TextBoxFor(model => model.Email, new { placeholder = "E-Mail:" })</li>
+    <li>@Html.TextBoxFor(model => model.Password, new { placeholder = "Şifre:" })</li>
+    <li><button id="btnKaydol">Kaydet</button> </li>
+</ul>
+
+
+@if (TempData["Message"] != null)
+{
+    <div style="background-color: #2882a9; color: white; padding: 7px 15px; margin-top:15px;">
+        @TempData["Message"]
+    </div>
+}

@@ -1,0 +1,43 @@
+﻿@model List<Post>
+
+@{
+    AppleCatEntities2 db = new AppleCatEntities2();
+    List<PostImage> piList = db.PostImages.ToList();
+}
+
+@if (Model.Count > 0)
+{
+    foreach (Post item in Model)
+    {
+        <div class="Post">
+            <div class="PostDescRight">
+                <h2>@item.Title</h2>
+
+            </div>
+
+            @if (piList.Count(p => p.PostID == item.PostID) > 0)
+            {
+                <div class="PostImage">
+
+                    <img src="~/Content/images/@piList.FirstOrDefault(pi => pi.PostID == item.PostID).ImagePath" alt="Minik Dünyalar" />
+
+                    <div class="PostDesc">
+
+                        
+                    </div>
+                </div>
+            }
+
+            <div class="PostMessage">
+                @Html.Raw(item.Text)
+            </div>
+            <div class="PostDetailBar">
+                <a href="@Url.Action("Post", "Home", new { id = item.PostID })">Devamını Oku..</a>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <h2>Üzgünüz bu kategoride bir paylaşım bulunamadı.</h2>
+}

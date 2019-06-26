@@ -1,0 +1,13 @@
+﻿@model List<User>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@foreach (User item in Model)
+{
+    @item.FirstName @item.LastName
+    <br />
+}

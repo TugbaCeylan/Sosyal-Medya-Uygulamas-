@@ -1,0 +1,63 @@
+﻿@model Post
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+    <title>Delete</title>
+
+    <h3>Silmek istediğine emin misin?</h3>
+    <fieldset>
+        <legend>Post</legend>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Title)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Title)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Text)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Text)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.User.FirstName)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.PublishDate)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.PublishDate)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.IsDeleted)
+        </div>
+    </fieldset>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <p>
+            <input type="submit" value="Delete" /> |
+            @Html.ActionLink("Profile geri dön", "Profil", "Home")
+        </p>
+    }
+

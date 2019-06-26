@@ -1,0 +1,30 @@
+﻿@model User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+
+<form method="post">
+    <table id="LoginTablo">
+        <tr>
+            <td>Kullanıcı Adı</td>
+            <td>: </td>
+            <td>
+                @Html.TextBoxFor(model => model.FirstName)
+            </td>
+        </tr>
+        <tr>
+            <td>Şifresi</td>
+            <td>: </td>
+            <td>
+                @Html.TextBoxFor(model => model.Password)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <button id="btnGirisYap"> Giriş Yap</button>
+            </td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Templates/Style.css" rel="stylesheet" />
+    <link href="~/Content/Templates/UserStyle.css" rel="stylesheet" />
+    <link href="~/Content/Templates/LayoutLoginStyle.css" rel="stylesheet" />
+    <style type="text/css">
+        #Container {
+            background-image: url('~/Content/Templates/images/back.png');
+        }
+    </style>
+</head>
+<body>
+    <div id="Header">
+        <div id="Headeric">
+            <span id="Logo">
+                <img src="~/Content/Templates/images/Logo.png" />
+            </span>
+            <span id="Login">
+                <div id="Nav">
+                    @if (Session["oturum"] != null)
+                    {
+                        if (Convert.ToInt32(Session["rolId"]) == 1)
+                        {<ul>
+                            <li> @Html.ActionLink("Admin", "Admin", "Home", new { style = "text-decoration:none;color:#000;font-size:large;" })</li>
+                            <li> @Html.ActionLink("Ana Sayfa", "Home", "Home", new { style = "text-decoration:none;color:#000;font-size:large;" })</li>
+                            <li> @Html.ActionLink("Profil", "Profil", "Home", new { style = "text-decoration:none;color:#000;font-size:large;" })</li>
+                            <li> @Html.ActionLink("Çıkış", "Exit", "Home", new { style = "text-decoration:none;color:#000;font-size:large;" })</li>
+                        </ul>
+                        }
+                        else
+                        {
+                            <ul>
+                                <li> @Html.ActionLink("Ana Sayfa", "Home", "Home", new { style = "text-decoration:none;color:#000;font-size:large;" })</li>
+                                <li> @Html.ActionLink("Profil", "Profil", "Home", new { style = "text-decoration:none;color:#000;font-size:large;" })</li>
+                                <li> @Html.ActionLink("Çıkış", "Exit", "Home", new { style = "text-decoration:none;color:#000;font-size:large;" })</li>
+                            </ul>
+                        }
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Oturum Aç", "Login", "Home", new { style = "text-decoration:none;color:#000;font-size:large;" })
+                    }
+                </div>
+            </span>
+        </div>
+    </div>
+    <div id="Container">
+        <div id="Content">
+            <div id="pf">
+                <p> Merhaba hayvan dostu güzel insan.</p><br /><p>Artık hayvan sever arkadaşlarınla bulışman daha kolay. Bu pltformda hayvan bakımı ile ilgili tecrübelerini herkesle paylaşabilirsin.</p><br /><p>Bakıma muhtaç hayvanlara bakabilecek, yardım edebilecek insanlara daha rahat ulaşabilirsin. Sahiplenilmelerine yardımcı olabilir ve yahut minik arkadaşlarımızı sahiplenebilirsin.</p><br /><p>Evcil hayvanına arkadaş arıyorsan buradan bulabilir ya da artık kullanmadığın eşyalarını ihtiyacı olanlara ulaştırabilirsin.</p>
+            </div>
+        </div>
+        <div id="Registry">
+            @RenderBody()
+            @Scripts.Render("~/bundles/jquery")
+            @RenderSection("scripts", required: false)
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Admin</h2>
+
+@Html.ActionLink("Kullanıcıları Yönet", "Index", "User")
+<br />
+@Html.ActionLink("Kategorileri Yönet", "Index", "Category")
+<br />
+@Html.ActionLink("Gönderileri Yönet", "Index", "AdminPost")
+<br />
+@Html.ActionLink("Yorumları Yönet", "Index", "Comment")
+<br />
+@Html.ActionLink("Görselleri Yönet", "Index", "PostImage")
+<br />
+@Html.ActionLink("Kategorileri Yönet(2)", "Index", "Category2")

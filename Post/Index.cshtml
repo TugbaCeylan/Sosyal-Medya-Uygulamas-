@@ -1,0 +1,10 @@
+﻿@model List<Post>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>Home</h2>
+
+@Html.Partial("_PostPartial", Model)

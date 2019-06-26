@@ -1,0 +1,30 @@
+﻿@{
+    AppleCatEntities2 db = new AppleCatEntities2();
+    List<Category> cList = db.Categories.ToList();
+}
+<style type="text/css">
+    /*#Category {
+        margin-bottom: 20px;
+        text-decoration: none;
+        color: #ff6a00;
+        font-size: 30px;
+        font-weight: 400;
+        font-variant: small-caps;
+    }*/
+
+        /*#Category ul li a {
+            text-decoration: none;
+            color: #ff6a00;
+            font-size: 30px;
+            font-weight: 400;
+            font-variant: small-caps;
+        }*/
+</style>
+
+<ul>
+    @foreach (Category item in cList.Where(c => c.IsDeleted == false).OrderBy(c => c.CategoryName).ToList())
+    {
+        <li id="Category">@Html.ActionLink(item.CategoryName, "Posts", "Home", new { id = item.CategoryID }, null)</li>
+        <br />
+    }
+</ul>
